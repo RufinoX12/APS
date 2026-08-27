@@ -3,160 +3,137 @@
 Conceitos e elementos fundamentais da engenharia de software - definição, características e tipos de
 modelagens. Ferramentas Case de apoio ao desenho dos diagramas UML
 
-# Ficha de Requisitos — Aula 02
-
-**Análise e Projeto de Sistemas — Unidade II**
-
+Ficha de Requisitos — Aula 02
+Análise e Projeto de Sistemas
+Unidade: II — Introdução à Análise e Projeto de Sistemas  
+Atividade: Transformação do levantamento do sistema em requisitos funcionais e não funcionais  
+Objetivo: Registrar, de forma estruturada, o que o sistema deve fazer e quais características de qualidade deve atender.
 ---
-
-## 2. Requisitos Funcionais
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RF01 — Cadastrar usuário |
-| **Descrição** | O sistema deve permitir que o bibliotecário cadastre usuários da biblioteca. |
-| **Prioridade** | Alta |
-| **Critérios de aceitação** | Permitir nome, matrícula, e-mail e telefone; impedir cadastro sem nome e matrícula; confirmar cadastro. |
-| **Exemplo** | Bibliotecário informa os dados do aluno e seleciona Cadastrar. |
-
-### RF02 — Cadastrar livro
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RF02 — Cadastrar livro |
-| **Descrição** | O sistema deve permitir cadastrar livros disponíveis na biblioteca. |
-| **Prioridade** | Alta |
-| **Critérios de aceitação** | Permitir título, autor, ISBN e quantidade; impedir título vazio; confirmar cadastro. |
-| **Exemplo** | Bibliotecário cadastra um livro e seus dados. |
-
-### RF03 — Realizar empréstimo
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RF03 — Realizar empréstimo |
-| **Descrição** | O sistema deve permitir registrar o empréstimo de um livro para usuário habilitado. |
-| **Prioridade** | Alta |
-| **Critérios de aceitação** | Verificar usuário, disponibilidade, registrar datas e atualizar quantidade. |
-| **Exemplo** | Bibliotecário seleciona aluno e livro e registra o empréstimo. |
-
-### RF04 — Registrar devolução
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RF04 — Registrar devolução |
-| **Descrição** | O sistema deve permitir registrar a devolução de um livro emprestado. |
-| **Prioridade** | Alta |
-| **Critérios de aceitação** | Localizar empréstimo, registrar devolução, atualizar disponibilidade e verificar atraso. |
-| **Exemplo** | Bibliotecário registra a devolução e o sistema atualiza o estoque. |
-
-### RF05 — Calcular multa
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RF05 — Calcular multa |
-| **Descrição** | O sistema deve calcular multa quando houver devolução após o prazo. |
-| **Prioridade** | Média |
-| **Critérios de aceitação** | Comparar datas, calcular valor segundo regra definida e registrar multa. |
-| **Exemplo** | Devolução atrasada gera cálculo de multa. |
-
-### RF06 — Consultar disponibilidade
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RF06 — Consultar disponibilidade |
-| **Descrição** | O sistema deve permitir consultar se determinado livro está disponível. |
-| **Prioridade** | Média |
-| **Critérios de aceitação** | Pesquisar por título, autor ou ISBN e informar quantidade disponível. |
-| **Exemplo** | Pesquisa retorna dois exemplares disponíveis. |
-
+1. Identificação do Sistema
+Campo	Preenchimento
+Nome do sistema	Sistema de Biblioteca
+Objetivo	Gerenciar cadastro de usuários, livros, empréstimos, devoluções e multas.
+Público-alvo	Alunos, bibliotecários e administradores.
+Responsável pelo levantamento	Grupo de estudantes
+Versão	1.0
 ---
-
-## 3. Requisitos Não Funcionais
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RNF01 — Segurança |
-| **Descrição** | Controlar acesso conforme perfil. |
-| **Prioridade** | Alta |
-| **Critérios de aceitação** | Autenticação e autorização para funções restritas. |
-| **Exemplo** | Aluno não acessa cadastro de livros. |
-
-### RNF02 — Usabilidade
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RNF02 — Usabilidade |
-| **Descrição** | Interface clara e consistente. |
-| **Prioridade** | Alta |
-| **Critérios de aceitação** | Rótulos claros, mensagens orientativas e ações identificáveis. |
-| **Exemplo** | Campo obrigatório vazio gera orientação. |
-
-### RNF03 — Desempenho
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RNF03 — Desempenho |
-| **Descrição** | Consultas comuns devem responder em tempo adequado. |
-| **Prioridade** | Média |
-| **Critérios de aceitação** | Consultas simples em até 3 segundos em condições normais. |
-| **Exemplo** | Pesquisa de livro retorna em até 3 segundos. |
-
-### RNF04 — Disponibilidade
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RNF04 — Disponibilidade |
-| **Descrição** | Disponível durante o horário da biblioteca. |
-| **Prioridade** | Alta |
-| **Critérios de aceitação** | Acessível no horário definido, salvo manutenção programada. |
-| **Exemplo** | Bibliotecário realiza empréstimos durante o atendimento. |
-
-### RNF05 — Integridade dos dados
-
-| Campo | Descrição |
-|---|---|
-| **Identificação** | RNF05 — Integridade dos dados |
-| **Descrição** | Preservar consistência dos dados. |
-| **Prioridade** | Alta |
-| **Critérios de aceitação** | Bloquear livro inexistente, quantidade negativa e associações inválidas. |
-| **Exemplo** | Empréstimo sem estoque é bloqueado. |
-
+2. Requisitos Funcionais
+> Requisitos funcionais descrevem **funcionalidades ou serviços que o sistema deve oferecer**.
+RF01 — Cadastrar usuário
+Campo	Descrição
+Identificação	RF01
+Descrição	O sistema deve permitir que o bibliotecário cadastre usuários da biblioteca.
+Prioridade	Alta
+Critérios de aceitação	1. Deve permitir informar nome, matrícula, e-mail e telefone. 2. Deve impedir cadastro sem nome e matrícula. 3. Deve informar ao usuário quando o cadastro for concluído.
+Exemplo	O bibliotecário informa os dados de um aluno e seleciona Cadastrar. O sistema valida os dados e registra o novo usuário.
+RF02 — Cadastrar livro
+Campo	Descrição
+Identificação	RF02
+Descrição	O sistema deve permitir cadastrar livros disponíveis na biblioteca.
+Prioridade	Alta
+Critérios de aceitação	1. Deve permitir informar título, autor, ISBN e quantidade disponível. 2. Deve impedir o cadastro de livro sem título. 3. Deve apresentar confirmação após o cadastro.
+Exemplo	O bibliotecário cadastra o livro Engenharia de Software, informa autor e ISBN, e o sistema registra o exemplar.
+RF03 — Realizar empréstimo
+Campo	Descrição
+Identificação	RF03
+Descrição	O sistema deve permitir registrar o empréstimo de um livro para um usuário habilitado.
+Prioridade	Alta
+Critérios de aceitação	1. Deve verificar se o usuário está cadastrado. 2. Deve verificar a disponibilidade do livro. 3. Deve registrar usuário, livro, data do empréstimo e data prevista para devolução. 4. Deve atualizar a quantidade disponível.
+Exemplo	O bibliotecário seleciona o aluno e o livro. O sistema verifica a disponibilidade e registra o empréstimo.
+RF04 — Registrar devolução
+Campo	Descrição
+Identificação	RF04
+Descrição	O sistema deve permitir registrar a devolução de um livro emprestado.
+Prioridade	Alta
+Critérios de aceitação	1. Deve localizar o empréstimo. 2. Deve registrar a data de devolução. 3. Deve atualizar a disponibilidade do livro. 4. Deve verificar se houve atraso.
+Exemplo	O bibliotecário registra a devolução. O sistema atualiza o estoque e verifica se o prazo foi cumprido.
+RF05 — Calcular multa
+Campo	Descrição
+Identificação	RF05
+Descrição	O sistema deve calcular a multa quando um livro for devolvido após o prazo estabelecido.
+Prioridade	Média
+Critérios de aceitação	1. Deve comparar a data prevista com a data efetiva de devolução. 2. Deve calcular o valor conforme a regra definida pela biblioteca. 3. Deve registrar a multa vinculada ao usuário.
+Exemplo	Um livro deveria ser devolvido em 10/09 e foi devolvido em 13/09. O sistema identifica o atraso e calcula a multa correspondente.
+RF06 — Consultar disponibilidade de livro
+Campo	Descrição
+Identificação	RF06
+Descrição	O sistema deve permitir consultar se determinado livro está disponível para empréstimo.
+Prioridade	Média
+Critérios de aceitação	1. Deve permitir pesquisar por título, autor ou ISBN. 2. Deve informar a quantidade disponível. 3. Deve indicar quando não houver exemplares disponíveis.
+Exemplo	O usuário pesquisa um livro pelo título e o sistema informa que existem dois exemplares disponíveis.
 ---
-
-## 4. Modelo para preenchimento
-
-| Campo | Requisito Funcional | Requisito Não Funcional |
-|---|---|---|
-| **Identificação** | RF__ | RNF__ |
-| **Descrição** | | |
-| **Prioridade** | Alta / Média / Baixa | Alta / Média / Baixa |
-| **Critérios de aceitação** | | |
-| **Exemplo** | | |
-
+3. Requisitos Não Funcionais
+> Requisitos não funcionais descrevem **características, restrições e condições de qualidade** que o sistema deve atender.
+RNF01 — Segurança
+Campo	Descrição
+Identificação	RNF01
+Descrição	O sistema deve controlar o acesso às funcionalidades conforme o perfil do usuário.
+Prioridade	Alta
+Critérios de aceitação	1. Usuários devem autenticar-se antes de acessar funções restritas. 2. Funcionalidades administrativas devem estar disponíveis somente a perfis autorizados.
+Exemplo	Um aluno não pode acessar a funcionalidade de cadastro de livros, disponível ao bibliotecário.
+RNF02 — Usabilidade
+Campo	Descrição
+Identificação	RNF02
+Descrição	A interface deve apresentar informações e comandos de forma clara e consistente.
+Prioridade	Alta
+Critérios de aceitação	1. Os campos devem possuir rótulos claros. 2. Mensagens de erro devem orientar o usuário. 3. As ações principais devem ser facilmente identificáveis.
+Exemplo	Ao deixar a matrícula vazia, o sistema informa que o campo é obrigatório.
+RNF03 — Desempenho
+Campo	Descrição
+Identificação	RNF03
+Descrição	Consultas comuns devem apresentar resposta em tempo adequado para o uso cotidiano.
+Prioridade	Média
+Critérios de aceitação	Em condições normais de operação, consultas simples devem apresentar o resultado em até 3 segundos.
+Exemplo	Ao pesquisar um livro pelo título, o resultado deve ser apresentado em até 3 segundos.
+RNF04 — Disponibilidade
+Campo	Descrição
+Identificação	RNF04
+Descrição	O sistema deve estar disponível durante o horário de funcionamento da biblioteca.
+Prioridade	Alta
+Critérios de aceitação	O sistema deve permanecer acessível durante o período definido pela instituição, exceto em manutenções previamente programadas.
+Exemplo	Durante o horário de atendimento, o bibliotecário consegue realizar empréstimos sem indisponibilidade não planejada.
+RNF05 — Integridade dos dados
+Campo	Descrição
+Identificação	RNF05
+Descrição	O sistema deve preservar a consistência dos dados registrados.
+Prioridade	Alta
+Critérios de aceitação	1. Não deve permitir empréstimo de livro inexistente. 2. Não deve permitir quantidade de exemplares negativa. 3. Um empréstimo deve estar associado a usuário e livro válidos.
+Exemplo	Ao tentar emprestar um livro sem exemplares disponíveis, o sistema bloqueia a operação e informa o motivo.
 ---
-
-## 5. Orientações
-
-Um bom requisito deve ser **claro, específico, verificável e relevante**.
-
-O grupo deve verificar:
-
-- Identificação
-- Descrição
-- Prioridade
-- Critérios de aceitação
-- Exemplo
-
+4. Modelo para preenchimento pelos estudantes
+Requisito Funcional
+Campo	Resposta do grupo
+Identificação	RF__
+Descrição	
+Prioridade	Alta / Média / Baixa
+Critérios de aceitação	
+Exemplo	
+Requisito Não Funcional
+Campo	Resposta do grupo
+Identificação	RNF__
+Descrição	
+Prioridade	Alta / Média / Baixa
+Critérios de aceitação	
+Exemplo	
 ---
-
-## 6. Entregável
-
-Entregar:
-
-- A identificação do sistema
-- Pelo menos **5 requisitos funcionais**
-- Pelo menos **3 requisitos não funcionais**
-- Prioridade
-- Critérios de aceitação
-- Exemplos
-- Identificação dos integrantes
+5. Orientações para elaboração
+Para cada requisito, o grupo deve verificar:
+Identificação: possui código único?
+Descrição: está claro o que o sistema deve fazer ou qual característica deve apresentar?
+Prioridade: é essencial, importante ou pode ser implementado posteriormente?
+Critérios de aceitação: é possível verificar objetivamente se o requisito foi atendido?
+Exemplo: existe uma situação concreta que demonstra o requisito?
+Regra prática
+Um bom requisito deve ser:
+Claro + específico + verificável + relevante
+---
+6. Entregável da atividade
+O grupo deverá entregar:
+Identificação do sistema;
+Pelo menos 5 requisitos funcionais;
+Pelo menos 3 requisitos não funcionais;
+Prioridade de cada requisito;
+Critérios de aceitação;
+Exemplo de utilização;
+Identificação dos integrantes do grupo.
+Próxima etapa: os requisitos produzidos nesta ficha servirão de base para a identificação e especificação dos casos de uso.
